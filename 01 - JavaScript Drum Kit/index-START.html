@@ -60,7 +60,10 @@
 <script>
   document.querySelectorAll('.key').forEach(function (key) {
     key.addEventListener('transitionend', function (e) {
-      console.log(e)
+      if (e.propertyName !== 'transform') {
+        return
+      };
+      this.classList.remove('playing')
     })
   });
   window.addEventListener('keydown', function (e) {
