@@ -65,6 +65,7 @@
     if (!sound) {
       return
     };
+    sound.currentTime = 0;
     sound.play();
     key.classList.add('playing');
   });
