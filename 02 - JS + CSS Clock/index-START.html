@@ -73,14 +73,11 @@
     function setTime() {
       // Store current time
       const currentTime = new Date();
-      const seconds = currentTime.getSeconds();
-      const minutes = currentTime.getMinutes();
-      const hours = currentTime.getMinutes();
 
       // Calculate hand positions
-      const secondsPosition = (((seconds / 60) * 360) + 90);
-      const minutesPosition = (((minutes / 60) * 360) + 90);
-      const hoursPosition = (((minutes / 12) * 360) + 90);
+      const secondsPosition = (((currentTime.getSeconds() / 60) * 360) + 90);
+      const minutesPosition = (((currentTime.getMinutes() / 60) * 360) + 90);
+      const hoursPosition = (((currentTime.getHours() / 12) * 360) + 90);
 
       // Set hand positions
       secHand.style.transform = `rotate(${secondsPosition}deg)`;
