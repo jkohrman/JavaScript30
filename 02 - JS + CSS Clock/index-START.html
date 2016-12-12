@@ -9,9 +9,9 @@
 
     <div class="clock">
       <div class="clock-face">
-        <div class="hand hour-hand"></div>
-        <div class="hand min-hand"></div>
-        <div class="hand second-hand"></div>
+        <div class="hand hour-hand hand-bounce"></div>
+        <div class="hand min-hand hand-bounce"></div>
+        <div class="hand second-hand hand-bounce"></div>
       </div>
     </div>
 
@@ -76,6 +76,12 @@
       margin-left: 45px;
     }
 
+    .hand-bounce {
+      transition: all 0.05s;
+      transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+    }
+
+
   </style>
 
   <script>
@@ -93,6 +99,12 @@
       const hoursPosition = (((currentTime.getHours() / 12) * 360) + 90);
 
       // Set hand positions
+      const hands = [secHand, minHand, hourHand];
+      hands.forEach(function (hand) {
+        if (currentTime.getSeconds() <= 1) {
+          hand.classList.toggle('hand-bounce');
+        }
+      });
       secHand.style.transform = `rotate(${secondsPosition}deg)`;
       minHand.style.transform = `rotate(${minutesPosition}deg)`;
       hourHand.style.transform = `rotate(${hoursPosition}deg)`;
