@@ -70,11 +70,18 @@
 
   <script>
     const controls = document.querySelectorAll('.controls input');
+    const events = ['change', 'mousemove'];
 
     function effectHandler() {
       const suffix = this.dataset.sizing || '';
       document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
     }
+
+    controls.forEach(function (ctrl) {
+      events.forEach(function (event) {
+        ctrl.addEventListener(event, effectHandler);
+      });
+    });
 
   </script>
 
