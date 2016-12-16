@@ -97,6 +97,15 @@
     // 8. Reduce Exercise
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+    const transportTypeCount = data.reduce(function (k, v) {
+      if (!k[v]) {
+        k[v] = 0;
+      };
+      k[v]++;
+      return k;
+    }, {});
+
+    console.log(transportTypeCount);
 
   </script>
 </body>
