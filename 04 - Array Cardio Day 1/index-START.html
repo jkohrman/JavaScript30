@@ -84,6 +84,15 @@
 
     // 7. sort Exercise
     // Sort the people alphabetically by last name
+    const peopleByLastName = people.sort(function (a, b) {
+      if ((a.split(', ')[0]) > (b.split(', ')[0])) {
+        return 1;
+      } else {
+        return -1;
+      };
+    });
+
+    console.log(peopleByLastName);
 
     // 8. Reduce Exercise
     // Sum up the instances of each of these
