@@ -136,6 +136,12 @@
       this.classList.toggle('open');
     }
 
+    function toggleActive() {
+      if (e.propertyName.includes('flex')) {
+        this.classList.toggle('open-active');
+      };
+    }
+
     panels.forEach(function (panel) {
       panel.addEventListener('click', toggleOpen);
     });
